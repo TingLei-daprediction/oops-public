@@ -148,9 +148,6 @@ template <typename MODEL>
 void Geometry<MODEL>::setTrees() {
   std::vector<double> lats;
   std::vector<double> lons;
-  this->latlon(lats, lons, true);
-  gdata_.setLocalTree(lats, lons);
-
   this->latlon(lats, lons, false);
   gdata_.setGlobalTree(lats, lons);
 }
