@@ -46,7 +46,6 @@ class GeometryData {
   GeometryData & operator=(const GeometryData &) = delete;
 
   int closestTask(const double, const double) const;
-  atlas::util::KDTree<size_t>::ValueList closestPoints(const double, const double, const int) const;
 
   /// Identifies the three model grid points defining the triangle containing (lat,lon).
   ///

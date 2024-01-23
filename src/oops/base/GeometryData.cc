@@ -41,18 +41,6 @@ int GeometryData::closestTask(const double lat, const double lon) const {
 
 // -----------------------------------------------------------------------------
 
-atlas::util::KDTree<size_t>::ValueList GeometryData::closestPoints(const double lat,
-                                                                   const double lon,
-                                                                   const int npoints) const {
-  ASSERT(loctree_);
-  atlas::PointLonLat obsloc(lon, lat);
-  obsloc.normalise();
-  atlas::util::KDTree<size_t>::ValueList neighbours = localTree_.closestPoints(obsloc, npoints);
-  return neighbours;
-}
-
-// -----------------------------------------------------------------------------
-
 bool GeometryData::containingTriangleAndBarycentricCoords(const double lat, const double lon,
     std::array<int, 3> & indices, std::array<double, 3> & baryCoords) const {
   ASSERT(loctree_);

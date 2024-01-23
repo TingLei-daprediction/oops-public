@@ -97,11 +97,6 @@ class Geometry : public interface::Geometry<MODEL> {
   }
   ///@}
 
-  atlas::util::KDTree<size_t>::ValueList closestPoints(const double lat, const double lon,
-                                                       const int npoints) const {
-    return gdata_.closestPoints(lat, lon, npoints);
-  }
-
  private:
   const eckit::mpi::Comm * timeComm_;   /// pointer to the MPI communicator in time
   GeometryData gdata_;
