@@ -30,7 +30,7 @@
 namespace test {
 
 CASE("util/FunctionSpaceHelpers/StructuredColumnsLonLat") {
-  const eckit::mpi::Comm * comm = &oops::mpi::world();
+  const eckit::mpi::Comm & comm = oops::mpi::world();
 
   eckit::LocalConfiguration config;
   config.set("function space", "StructuredColumns");
@@ -44,7 +44,7 @@ CASE("util/FunctionSpaceHelpers/StructuredColumnsLonLat") {
   atlas::FunctionSpace functionspace{};
   atlas::FieldSet fieldset{};
 
-  util::setupFunctionSpace(*comm, config, grid, partitioner, mesh, functionspace, fieldset);
+  util::setupFunctionSpace(comm, config, grid, partitioner, mesh, functionspace, fieldset);
 
   EXPECT(grid.type() == "structured");
   EXPECT(grid.name() == "L40x21");
@@ -55,7 +55,7 @@ CASE("util/FunctionSpaceHelpers/StructuredColumnsLonLat") {
 }
 
 CASE("util/FunctionSpaceHelpers/StructuredColumnsGaussian") {
-  const eckit::mpi::Comm * comm = &oops::mpi::world();
+  const eckit::mpi::Comm & comm = oops::mpi::world();
 
   eckit::LocalConfiguration config;
   config.set("function space", "StructuredColumns");
@@ -69,7 +69,7 @@ CASE("util/FunctionSpaceHelpers/StructuredColumnsGaussian") {
   atlas::FunctionSpace functionspace{};
   atlas::FieldSet fieldset{};
 
-  util::setupFunctionSpace(*comm, config, grid, partitioner, mesh, functionspace, fieldset);
+  util::setupFunctionSpace(comm, config, grid, partitioner, mesh, functionspace, fieldset);
 
   EXPECT(grid.type() == "structured");
   EXPECT(grid.name() == "F10");
@@ -80,7 +80,7 @@ CASE("util/FunctionSpaceHelpers/StructuredColumnsGaussian") {
 }
 
 CASE("util/FunctionSpaceHelpers/StructuredColumnsRegional") {
-  const eckit::mpi::Comm * comm = &oops::mpi::world();
+  const eckit::mpi::Comm & comm = oops::mpi::world();
 
   eckit::LocalConfiguration config;
   config.set("function space", "StructuredColumns");
@@ -102,7 +102,7 @@ CASE("util/FunctionSpaceHelpers/StructuredColumnsRegional") {
   atlas::FunctionSpace functionspace{};
   atlas::FieldSet fieldset{};
 
-  util::setupFunctionSpace(*comm, config, grid, partitioner, mesh, functionspace, fieldset);
+  util::setupFunctionSpace(comm, config, grid, partitioner, mesh, functionspace, fieldset);
 
   std::cout << grid.type() << std::endl;
   std::cout << grid.name() << std::endl;
@@ -118,7 +118,7 @@ CASE("util/FunctionSpaceHelpers/StructuredColumnsRegional") {
 }
 
 CASE("util/FunctionSpaceHelpers/NodeColumnsCubedSphere") {
-  const eckit::mpi::Comm * comm = &oops::mpi::world();
+  const eckit::mpi::Comm & comm = oops::mpi::world();
 
   eckit::LocalConfiguration config;
   config.set("function space", "NodeColumns");
@@ -132,7 +132,7 @@ CASE("util/FunctionSpaceHelpers/NodeColumnsCubedSphere") {
   atlas::FunctionSpace functionspace{};
   atlas::FieldSet fieldset{};
 
-  util::setupFunctionSpace(*comm, config, grid, partitioner, mesh, functionspace, fieldset);
+  util::setupFunctionSpace(comm, config, grid, partitioner, mesh, functionspace, fieldset);
 
   std::cout << grid.type() << std::endl;
   std::cout << grid.name() << std::endl;
@@ -148,7 +148,7 @@ CASE("util/FunctionSpaceHelpers/NodeColumnsCubedSphere") {
 }
 
 CASE("util/FunctionSpaceHelpers/NodeColumnsUnstructured") {
-  const eckit::mpi::Comm * comm = &oops::mpi::world();
+  const eckit::mpi::Comm & comm = oops::mpi::world();
 
   eckit::LocalConfiguration config;
   config.set("function space", "NodeColumns");
@@ -163,7 +163,7 @@ CASE("util/FunctionSpaceHelpers/NodeColumnsUnstructured") {
   atlas::FunctionSpace functionspace{};
   atlas::FieldSet fieldset{};
 
-  util::setupFunctionSpace(*comm, config, grid, partitioner, mesh, functionspace, fieldset);
+  util::setupFunctionSpace(comm, config, grid, partitioner, mesh, functionspace, fieldset);
 
   EXPECT(grid.type() == "unstructured");
   EXPECT(grid.name() == "unstructured.7289032");
